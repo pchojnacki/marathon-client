@@ -17,8 +17,10 @@ public class App {
 	private List<List<String>> constraints;
 	private Container container;
 	private Map<String, String> env;
+	private Map<String, String> labels;
 	private String executor;
 	private List<Integer> ports;
+	private boolean requirePorts;
 	private UpgradeStrategy upgradeStrategy;
 	private Collection<Task> tasks;
 	private Integer tasksStaged;
@@ -108,6 +110,14 @@ public class App {
 		this.env = env;
 	}
 
+	public Map<String, String> getLabels() {
+		return labels;
+	}
+
+	public void setLabels(Map<String, String> labels) {
+		this.labels = labels;
+	}
+
 	public String getExecutor() {
 		return executor;
 	}
@@ -138,7 +148,16 @@ public class App {
 		this.ports.add(port);
 	}
 
-	public UpgradeStrategy getUpgradeStrategy() {
+	public boolean isRequirePorts() {
+		return requirePorts;
+	}
+
+	public void setRequirePorts(boolean requirePorts) {
+		this.requirePorts = requirePorts;
+	}
+
+
+  public UpgradeStrategy getUpgradeStrategy() {
 	  return upgradeStrategy;
 	}
 
